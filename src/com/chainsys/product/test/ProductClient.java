@@ -2,6 +2,7 @@ package com.chainsys.product.test;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -14,11 +15,27 @@ public class ProductClient {
 	public static void main(String[] args) {
 
 		Set<Product> productSet;
+		List<String> namelist;
+		List<Integer> idlist;
 		ProductService service = new ProductServiceImpl();
 		String date;
 		DateTimeFormatter dateFormat;
 		int id;
 		String name;
+		
+		System.out.println(" 1. Find All Products");
+		System.out.println(" 2. Find the Product By Id");
+		System.out.println(" 3. Find the Product By Name");
+		System.out.println(" 4. Find the Product By Date");
+		System.out.println(" 5. Update the Product Name Based on the Id");
+		System.out.println(" 6. Update the Product Expiry date Based on the Id");
+		System.out.println(" 7. Adding a Product");
+		System.out.println(" 8. Deleting a Product By Id");
+		System.out.println(" 9. Deleting a Product By ExpiryDate");
+		System.out.println(" 10. Deleting a Product By Name");
+		System.out.println(" 11. Find All Product Names");
+		System.out.println(" 12. Find All Products Id");
+		
 		System.out.println("Enter the choice");
 		Scanner scanner = new Scanner(System.in);
 		int choice = scanner.nextInt();
@@ -122,7 +139,22 @@ public class ProductClient {
 		}
 		
 		break;
+		
+		
+	case 11:
+		System.out.println("Find All Products Names");
+		namelist = service.findAllName();
+		System.out.println(namelist);
+		break;
+	case 12:
+		System.out.println("Find All Product Id");
+		idlist = service.findAllId();
+		System.out.println(idlist);
+		break;
+	
+
 		}
+		
 		scanner.close();
 	}
 
